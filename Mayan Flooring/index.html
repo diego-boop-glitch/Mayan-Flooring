@@ -1,0 +1,1213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAYAN FLOORING | SD Based Quality Installations</title>
+  <meta name="description" content="MAYAN FLOORING is an SD based flooring business focused on quality installations.">
+  <style>
+    :root {
+      --bg: #f4f1e7;
+      --panel: #fffdf5;
+      --ink: #050505;
+      --text: #080808;
+      --muted: #4d493f;
+      --line: #111111;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .14);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: "Avenir Next Condensed", "Arial Narrow", Impact, ui-sans-serif, system-ui, sans-serif;
+      letter-spacing: 0;
+    }
+    body.admin-open { background: #f5f5f5; color: #111; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    figure { margin: 0; }
+    button, input, textarea { font: inherit; }
+
+    .site-shell { min-height: 100vh; overflow: hidden; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    .nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 20;
+      border-bottom: 2px solid rgba(0, 0, 0, .12);
+      background: rgba(244, 241, 231, .9);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      line-height: 1;
+    }
+    .brand-logo {
+      width: 54px;
+      height: 54px;
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      object-fit: contain;
+      background: var(--bg);
+    }
+    .brand-text { display: grid; gap: 3px; }
+    .brand strong {
+      font-size: clamp(18px, 2.3vw, 25px);
+      font-weight: 900;
+      letter-spacing: 0;
+      font-stretch: condensed;
+    }
+    .brand span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .nav-links a { border-bottom: 2px solid transparent; padding: 4px 0; }
+    .nav-links a:hover { border-color: var(--ink); }
+    .icon-link {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--ink);
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--ink);
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .icon-link:hover { transform: translateY(-2px); background: var(--ink); color: var(--bg); }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      align-items: center;
+      padding: 120px 0 54px;
+      background:
+        var(--hero-image, none),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.035) 0 1px, transparent 1px 48px),
+        var(--bg);
+      background-size: cover;
+      background-position: center;
+      border-bottom: 3px solid var(--ink);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 180px;
+      display: none;
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(280px, .85fr) minmax(0, 1fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .hero-logo-stage {
+      position: relative;
+      border: 3px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--panel);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      overflow: visible;
+      padding: 12px;
+    }
+    .hero-logo-stage::before,
+    .hero-logo-stage::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .hero-logo-stage::after {
+      inset: 34px;
+      border-style: dashed;
+      opacity: .35;
+    }
+    .hero-brand-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      margin-bottom: 20px;
+    }
+    .eyebrow::before { content: ""; width: 42px; height: 2px; background: currentColor; }
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-family: "Avenir Next Condensed", "Arial Narrow", Impact, ui-sans-serif, system-ui, sans-serif;
+      font-size: clamp(52px, 8.8vw, 118px);
+      line-height: .9;
+      font-weight: 950;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+    .hero-copy {
+      max-width: 670px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.45;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .cta-row, .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      padding: 0 18px;
+      cursor: pointer;
+      font-weight: 900;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .btn svg { width: 18px; height: 18px; }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-secondary { background: transparent; color: var(--ink); }
+    .btn:hover { transform: translateY(-2px); }
+    .hero-panel {
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      color: var(--bg);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-top: 30px;
+    }
+    .stat-list { display: grid; gap: 18px; }
+    .stat { border-bottom: 1px solid rgba(244,241,231,.3); padding-bottom: 18px; }
+    .stat:last-child { border-bottom: 0; padding-bottom: 0; }
+    .stat b { display: block; font-size: 28px; font-weight: 950; }
+    .stat span { color: #ddd8c9; font-size: 14px; line-height: 1.45; }
+
+    section { padding: 82px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+    .section-head h2 {
+      margin: 0;
+      max-width: 700px;
+      font-size: clamp(32px, 5vw, 62px);
+      line-height: .95;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+    .section-head p { max-width: 420px; margin: 0; color: var(--muted); line-height: 1.6; }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .service-card, .contact-block, .admin-card, .gallery-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+    }
+    .service-card {
+      min-height: 220px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .service-card h3 { margin: 0; font-size: 24px; text-transform: uppercase; }
+    .service-card p { color: var(--muted); margin: 8px 0 0; line-height: 1.55; }
+    .price {
+      display: inline-flex;
+      width: fit-content;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-auto-rows: 245px;
+      gap: 14px;
+    }
+    .gallery-card { position: relative; overflow: hidden; background: var(--panel); border-width: 2px; }
+    .gallery-card:first-child { grid-row: span 2; }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.08);
+      opacity: .92;
+    }
+    .gallery-placeholder {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--ink);
+      text-align: center;
+      background: repeating-linear-gradient(45deg, #f4f1e7 0 12px, #e6e1d2 12px 24px);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .gallery-card span {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      max-width: calc(100% - 28px);
+      background: rgba(0,0,0,.82);
+      color: var(--bg);
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .about-band {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .about-layout {
+      display: grid;
+      grid-template-columns: .75fr 1fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .founder-mark {
+      width: min(360px, 100%);
+      aspect-ratio: 1;
+      border: 2px solid var(--bg);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 28px;
+      border-radius: var(--radius);
+    }
+    .founder-mark strong {
+      display: block;
+      font-size: clamp(42px, 8vw, 92px);
+      line-height: .84;
+      text-transform: uppercase;
+    }
+    .founder-mark span {
+      display: block;
+      margin-top: 18px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    .about-copy h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 70px);
+      line-height: .96;
+      text-transform: uppercase;
+    }
+    .about-copy p { color: #ddd8c9; font-size: 18px; line-height: 1.65; }
+    .contact-block {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+    .contact-block h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 56px);
+      text-transform: uppercase;
+      line-height: .96;
+    }
+    .footer {
+      padding: 32px 0 46px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    .admin-view {
+      display: none;
+      min-height: 100vh;
+      background: #f5f5f5;
+      color: #111;
+      padding: 24px 0 60px;
+    }
+    .admin-open .site-shell { display: none; }
+    .admin-open .admin-view { display: block; }
+    .admin-login {
+      min-height: calc(100vh - 84px);
+      display: grid;
+      place-items: center;
+      padding: 28px 0;
+    }
+    .admin-login-panel {
+      width: min(460px, 100%);
+      border: 1px solid #dcdcdc;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.08);
+    }
+    .admin-login-panel h1 {
+      color: #111;
+      font-size: clamp(34px, 7vw, 70px);
+      margin-bottom: 18px;
+    }
+    .admin-login-panel p {
+      color: #4b4b4b;
+      line-height: 1.5;
+      margin: 0 0 18px;
+    }
+    .login-error {
+      display: none;
+      border: 1px solid #111;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+    .login-error.show { display: block; }
+    .admin-content { display: none; }
+    .owner-authenticated .admin-login { display: none; }
+    .owner-authenticated .admin-content { display: block; }
+    .admin-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .admin-top h1 { color: #111; font-size: clamp(32px, 6vw, 72px); }
+    .admin-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    .admin-btn {
+      min-height: 42px;
+      border: 1px solid #111;
+      background: #111;
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 0 14px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .admin-btn.light { background: #fff; color: #111; }
+    .admin-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .admin-card { background: #fff; border-color: #dcdcdc; padding: 18px; }
+    .admin-card.full { grid-column: 1 / -1; }
+    .admin-card h2 { margin: 0 0 16px; font-size: 20px; text-transform: uppercase; }
+    .field { display: grid; gap: 7px; margin-bottom: 13px; }
+    .field label {
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #333;
+    }
+    .field input, .field textarea {
+      width: 100%;
+      border: 1px solid #cfcfcf;
+      border-radius: 6px;
+      background: #fff;
+      color: #111;
+      padding: 10px 11px;
+      min-height: 42px;
+    }
+    .field textarea { min-height: 86px; resize: vertical; }
+    .toggle-row { display: flex; align-items: center; gap: 10px; min-height: 42px; }
+    .toggle-row input { width: 20px; height: 20px; accent-color: #111; }
+    .repeater { display: grid; gap: 12px; margin-bottom: 12px; }
+    .repeat-item {
+      border: 1px solid #ddd;
+      border-radius: var(--radius);
+      padding: 12px;
+      background: #fafafa;
+    }
+    .repeat-actions { display: flex; justify-content: flex-end; margin-top: 8px; }
+    .mini-btn {
+      border: 1px solid #111;
+      border-radius: 6px;
+      background: transparent;
+      color: #111;
+      font-weight: 900;
+      min-height: 34px;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+    .notice {
+      border: 1px solid #d1d1d1;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 12px;
+      color: #3c3c3c;
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .field input[type="color"] {
+      padding: 4px;
+      height: 46px;
+      cursor: pointer;
+    }
+    .credential-message {
+      display: none;
+      border: 1px solid #111;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+    .credential-message.show { display: block; }
+
+    @media (max-width: 860px) {
+      .nav-inner { height: auto; min-height: 68px; align-items: flex-start; padding: 14px 0; }
+      .nav-links { display: none; }
+      .hero { min-height: 88vh; padding-top: 104px; }
+      .hero-grid, .about-layout, .contact-block, .admin-grid { grid-template-columns: 1fr; }
+      .hero-panel { max-width: 520px; }
+      .service-grid, .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-auto-rows: 260px; }
+      .gallery-card:first-child { grid-row: span 1; }
+      .section-head { align-items: start; flex-direction: column; }
+      .contact-block { align-items: start; }
+    }
+    @media (max-width: 520px) {
+      .container { width: min(100% - 24px, 1120px); }
+      h1 { font-size: clamp(46px, 17vw, 78px); }
+      .btn { width: 100%; }
+      .service-card, .contact-block { padding: 20px; }
+      .admin-top { align-items: flex-start; flex-direction: column; }
+      .admin-actions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main class="site-shell" id="publicSite">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a class="brand" href="#home" aria-label="MAYAN FLOORING home">
+          <img class="brand-logo" data-logo src="assets/mayan-flooring-logo.jpg" alt="MAYAN FLOORING logo">
+          <span class="brand-text">
+            <strong data-bind="businessName">MAYAN FLOORING</strong>
+            <span data-bind="tagline">SD Based | Quality Installations</span>
+          </span>
+        </a>
+        <div class="nav-links">
+          <a href="#services" data-bind="navServices">Services</a>
+          <a href="#work" data-bind="navWork">Work</a>
+          <a href="#about" data-bind="navFounder">Founder</a>
+          <a href="#contact" data-bind="navContact">Contact</a>
+          <a class="icon-link" data-link="instagram" href="#" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.7 2.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="home">
+      <div class="container hero-grid">
+        <figure class="hero-logo-stage">
+          <img class="hero-brand-logo" data-logo src="assets/mayan-flooring-logo.jpg" alt="MAYAN FLOORING quality first logo">
+        </figure>
+        <div>
+          <div class="eyebrow" data-bind="tagline">SD Based | Quality Installations</div>
+          <h1 data-bind="businessName">MAYAN FLOORING</h1>
+          <p class="hero-copy" data-bind="heroText">Modern flooring installation built on clean work, sharp details, and local San Diego hustle.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" data-phone-link href="#contact">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.3 22 2 13.7 2 3.4 2 2.7 2.5 2 3.2 2h3.6C7.5 2 8 2.5 8 3.2c0 1.4.2 2.7.6 4 .1.4 0 .8-.3 1.2l-1.7 2.4Z"/></svg>
+              <span data-bind="phone">Phone coming soon</span>
+            </a>
+            <a class="btn btn-secondary" href="#work" data-bind="heroSecondaryButton">View Work</a>
+          </div>
+          <aside class="hero-panel" aria-label="Business highlights">
+            <div class="stat-list" id="highlightsGrid"></div>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-bind="servicesTitle">Services & Pricing</h2>
+          <p data-bind="servicesIntro">Explore installation options, estimate placeholders, and service details for upcoming flooring projects.</p>
+        </div>
+        <div class="service-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-bind="galleryTitle">Project Photos</h2>
+          <p data-bind="galleryIntro">Browse finished floor photos, before-and-after shots, and material closeups as projects are added.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="about-band" id="about">
+      <div class="container about-layout">
+        <div class="founder-mark"><div><strong data-bind="founderNumber">17</strong><span data-bind="founderLabel">Year Old Founder</span></div></div>
+        <div class="about-copy">
+          <h2 data-bind="aboutTitle">Funded by Esteban Villanueva</h2>
+          <p data-bind="aboutText">MAYAN FLOORING is an SD based business backed by young ambition and a quality-first mindset. The goal is simple: make every installation look clean, last strong, and leave the customer confident in the work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-block">
+          <div>
+            <h2 data-bind="contactTitle">Book a clean install.</h2>
+            <p class="hero-copy" data-bind="contactText">Reach out for availability, estimates, and project questions.</p>
+            <div class="contact-links">
+              <a class="btn btn-primary" data-phone-link href="#"><span data-bind="phone">Phone coming soon</span></a>
+              <a class="btn btn-secondary" data-link="instagram" href="#" target="_blank" rel="noreferrer" data-bind="instagramLabel">Instagram</a>
+              <a class="btn btn-secondary" data-link="facebook" href="#" target="_blank" rel="noreferrer" data-bind="facebookLabel">Facebook</a>
+            </div>
+          </div>
+          <a class="icon-link" data-link="instagram" href="#" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.7 2.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> <span data-bind="businessName">MAYAN FLOORING</span></span>
+        <span data-bind="footerText">SD Based | Quality Installations</span>
+      </div>
+    </footer>
+  </main>
+
+
+  <main class="admin-view" id="adminView">
+    <div class="container admin-login" id="adminLogin">
+      <form class="admin-login-panel" id="adminLoginForm">
+        <div class="eyebrow" style="color:#222">Owner access</div>
+        <h1>Admin Login</h1>
+        <p>This editor is locked for the MAYAN FLOORING owners. Changes save only after the owner login is accepted.</p>
+        <div class="login-error" id="loginError">Wrong username or password.</div>
+        <div class="field">
+          <label for="ownerUsername">Username</label>
+          <input id="ownerUsername" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="ownerPassword">Password</label>
+          <input id="ownerPassword" type="password" autocomplete="current-password" required>
+        </div>
+        <div class="admin-actions" style="justify-content:space-between">
+          <button class="admin-btn light" id="cancelLoginBtn" type="button">View Site</button>
+          <button class="admin-btn" type="submit">Unlock Admin</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="container admin-content" id="adminContent">
+      <div class="admin-top">
+        <div>
+          <div class="eyebrow" style="color:#222">Owner editor</div>
+          <h1>Admin</h1>
+        </div>
+        <div class="admin-actions">
+          <button class="admin-btn light" id="viewSiteBtn">View Site</button>
+          <button class="admin-btn light" id="logoutBtn">Log Out</button>
+          <button class="admin-btn light" id="resetBtn">Reset</button>
+          <button class="admin-btn" id="saveBtn">Save Changes</button>
+        </div>
+      </div>
+
+      <div class="notice">Private owner link: open this file with <strong>#admin</strong> at the end. Owner login is required. Changes save in this browser on this device.</div>
+
+      <div class="admin-grid">
+        <section class="admin-card">
+          <h2>Business Info</h2>
+          <div class="field"><label for="businessNameInput">Business name</label><input id="businessNameInput" data-setting="businessName"></div>
+          <div class="field"><label for="taglineInput">Tagline</label><input id="taglineInput" data-setting="tagline"></div>
+          <div class="field"><label for="phoneInput">Phone number</label><input id="phoneInput" data-setting="phone" placeholder="(000) 000-0000"></div>
+          <div class="field"><label for="heroTextInput">Hero text</label><textarea id="heroTextInput" data-setting="heroText"></textarea></div>
+          <div class="field"><label for="heroSecondaryButtonInput">Hero secondary button</label><input id="heroSecondaryButtonInput" data-setting="heroSecondaryButton"></div>
+          <div class="field"><label for="footerTextInput">Footer text</label><input id="footerTextInput" data-setting="footerText"></div>
+          <div class="field"><label for="instagramLabelInput">Instagram button label</label><input id="instagramLabelInput" data-setting="instagramLabel"></div>
+          <div class="field"><label for="facebookLabelInput">Facebook button label</label><input id="facebookLabelInput" data-setting="facebookLabel"></div>
+        </section>
+
+        <section class="admin-card">
+          <h2>Navigation</h2>
+          <div class="field"><label for="navServicesInput">Services nav label</label><input id="navServicesInput" data-setting="navServices"></div>
+          <div class="field"><label for="navWorkInput">Work nav label</label><input id="navWorkInput" data-setting="navWork"></div>
+          <div class="field"><label for="navFounderInput">Founder nav label</label><input id="navFounderInput" data-setting="navFounder"></div>
+          <div class="field"><label for="navContactInput">Contact nav label</label><input id="navContactInput" data-setting="navContact"></div>
+        </section>
+
+        <section class="admin-card">
+          <h2>Links & Media</h2>
+          <div class="field"><label for="instagramInput">Instagram link</label><input id="instagramInput" data-setting="instagram"></div>
+          <div class="field"><label for="facebookInput">Facebook link</label><input id="facebookInput" data-setting="facebook" placeholder="https://facebook.com/..."></div>
+          <div class="field"><label for="logoImageInput">Logo image URL/path</label><input id="logoImageInput" data-setting="logoImage" placeholder="assets/mayan-flooring-logo.jpg"></div>
+          <div class="field"><label for="heroImageInput">Hero background image URL</label><input id="heroImageInput" data-setting="heroImage" placeholder="Paste image URL"></div>
+          <div class="toggle-row"><input type="checkbox" id="showPricesInput" data-setting="showPrices"><label for="showPricesInput">Show prices on the website</label></div>
+        </section>
+
+        <section class="admin-card">
+          <h2>Page Sections</h2>
+          <div class="field"><label for="servicesTitleInput">Services title</label><input id="servicesTitleInput" data-setting="servicesTitle"></div>
+          <div class="field"><label for="servicesIntroInput">Services intro</label><textarea id="servicesIntroInput" data-setting="servicesIntro"></textarea></div>
+          <div class="field"><label for="galleryTitleInput">Gallery title</label><input id="galleryTitleInput" data-setting="galleryTitle"></div>
+          <div class="field"><label for="galleryIntroInput">Gallery intro</label><textarea id="galleryIntroInput" data-setting="galleryIntro"></textarea></div>
+          <div class="field"><label for="aboutTitleInput">About/founder title</label><input id="aboutTitleInput" data-setting="aboutTitle"></div>
+          <div class="field"><label for="aboutTextInput">Founder/about text</label><textarea id="aboutTextInput" data-setting="aboutText"></textarea></div>
+          <div class="field"><label for="founderNumberInput">Founder number/badge</label><input id="founderNumberInput" data-setting="founderNumber"></div>
+          <div class="field"><label for="founderLabelInput">Founder badge label</label><input id="founderLabelInput" data-setting="founderLabel"></div>
+          <div class="field"><label for="contactTitleInput">Contact title</label><input id="contactTitleInput" data-setting="contactTitle"></div>
+          <div class="field"><label for="contactTextInput">Contact text</label><textarea id="contactTextInput" data-setting="contactText"></textarea></div>
+          <div class="field"><label for="galleryPlaceholderInput">Picture placeholder text</label><input id="galleryPlaceholderInput" data-setting="galleryPlaceholder"></div>
+          <div class="field"><label for="serviceFallbackInput">Blank service fallback text</label><input id="serviceFallbackInput" data-setting="serviceFallback"></div>
+          <div class="field"><label for="priceFallbackInput">Blank price fallback text</label><input id="priceFallbackInput" data-setting="priceFallback"></div>
+        </section>
+
+        <section class="admin-card">
+          <h2>Design Colors</h2>
+          <div class="color-grid">
+            <div class="field"><label for="bgColorInput">Background</label><input id="bgColorInput" type="color" data-setting="bgColor"></div>
+            <div class="field"><label for="panelColorInput">Panel</label><input id="panelColorInput" type="color" data-setting="panelColor"></div>
+            <div class="field"><label for="inkColorInput">Ink/Text</label><input id="inkColorInput" type="color" data-setting="inkColor"></div>
+            <div class="field"><label for="mutedColorInput">Muted text</label><input id="mutedColorInput" type="color" data-setting="mutedColor"></div>
+          </div>
+        </section>
+
+        <section class="admin-card full">
+          <h2>Hero Highlights</h2>
+          <div class="repeater" id="highlightEditor"></div>
+          <button class="admin-btn light" id="addHighlightBtn" type="button">Add Highlight</button>
+        </section>
+
+        <section class="admin-card full">
+          <h2>Services & Prices</h2>
+          <div class="repeater" id="serviceEditor"></div>
+          <button class="admin-btn light" id="addServiceBtn" type="button">Add Service</button>
+        </section>
+
+        <section class="admin-card full">
+          <h2>Pictures</h2>
+          <div class="repeater" id="photoEditor"></div>
+          <button class="admin-btn light" id="addPhotoBtn" type="button">Add Picture</button>
+        </section>
+
+        <section class="admin-card full">
+          <h2>Owner Login</h2>
+          <div class="credential-message" id="credentialMessage"></div>
+          <div class="field"><label for="currentPasswordInput">Current password required</label><input id="currentPasswordInput" type="password" autocomplete="current-password"></div>
+          <div class="field"><label for="newUsernameInput">New username</label><input id="newUsernameInput" autocomplete="username" placeholder="Leave blank to keep current username"></div>
+          <div class="field"><label for="newPasswordInput">New password</label><input id="newPasswordInput" type="password" autocomplete="new-password" placeholder="Leave blank to keep current password"></div>
+          <div class="field"><label for="confirmPasswordInput">Confirm new password</label><input id="confirmPasswordInput" type="password" autocomplete="new-password"></div>
+          <button class="admin-btn" id="updateCredentialsBtn" type="button">Update Login</button>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const storageKey = "mayan-flooring-site-settings-v1";
+    const credentialStorageKey = "mayan-flooring-owner-credentials-v1";
+    const authStorageKey = "mayan-flooring-owner-authenticated";
+    const defaultCredentials = {
+      usernameHash: "6f0e3a8c0eb46e8834b43b03374ece43a030621d92a7437beb48f871e90f8d90",
+      passwordHash: "fcee50593a57b9f6af22863624a56c389959194792bc99f688319de07f4787e7"
+    };
+    const defaults = {
+      businessName: "MAYAN FLOORING",
+      tagline: "SD Based | Quality Installations",
+      phone: "Phone coming soon",
+      instagram: "https://www.instagram.com/mayanflooringsd?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      facebook: "#",
+      logoImage: "assets/mayan-flooring-logo.jpg",
+      heroImage: "",
+      heroText: "Modern flooring installation built on clean work, sharp details, and local San Diego hustle.",
+      heroSecondaryButton: "View Work",
+      navServices: "SERVICES",
+      navWork: "WORK",
+      navFounder: "FOUNDER",
+      navContact: "CONTACT",
+      servicesTitle: "Services & Pricing",
+      servicesIntro: "Explore installation options, estimate placeholders, and service details for upcoming flooring projects.",
+      galleryTitle: "Project Photos",
+      galleryIntro: "Browse finished floor photos, before-and-after shots, and material closeups as projects are added.",
+      aboutTitle: "Funded by Esteban Villanueva",
+      aboutText: "MAYAN FLOORING is an SD based business backed by young ambition and a quality-first mindset. The goal is simple: make every installation look clean, last strong, and leave the customer confident in the work.",
+      founderNumber: "17",
+      founderLabel: "Year Old Founder",
+      contactTitle: "Book a clean install.",
+      contactText: "Reach out for availability, estimates, and project questions.",
+      footerText: "SD Based | Quality Installations",
+      instagramLabel: "Instagram",
+      facebookLabel: "Facebook",
+      galleryPlaceholder: "Picture placeholder",
+      serviceFallback: "Service details coming soon.",
+      priceFallback: "Price placeholder",
+      bgColor: "#f4f1e7",
+      panelColor: "#fffdf5",
+      inkColor: "#050505",
+      mutedColor: "#4d493f",
+      showPrices: true,
+      highlights: [
+        { title: "QUALITY FIRST", text: "Bold, clean flooring work with the logo's quality-first promise brought into the site." },
+        { title: "SD BASED", text: "San Diego installation services with a sharp local look." },
+        { title: "EST. 2026", text: "Founded by Esteban Villanueva, a 17 year old building a serious flooring brand." }
+      ],
+      services: [
+        { name: "Floor Installation", description: "Placeholder service for vinyl, laminate, hardwood, or tile installation details.", price: "Price placeholder" },
+        { name: "Repair & Replacement", description: "Placeholder service for damaged flooring, transitions, trim, and spot repairs.", price: "Price placeholder" },
+        { name: "Estimates", description: "Placeholder service for project walk-throughs, measurements, and quote details.", price: "Price placeholder" }
+      ],
+      photos: [
+        { title: "Finished install photo", url: "" },
+        { title: "Before and after photo", url: "" },
+        { title: "Material closeup", url: "" },
+        { title: "Job site detail", url: "" },
+        { title: "Room transformation", url: "" }
+      ]
+    };
+    let settings = loadSettings();
+    let credentials = loadCredentials();
+
+    function loadSettings() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
+        const merged = { ...defaults, ...saved };
+        if (merged.servicesIntro === "Use the admin panel to add services, update pricing, or hide pricing until estimates are ready.") {
+          merged.servicesIntro = defaults.servicesIntro;
+        }
+        if (merged.galleryIntro === "Add finished floor photos, before-and-after shots, or material closeups from the admin panel.") {
+          merged.galleryIntro = defaults.galleryIntro;
+        }
+        return merged;
+      } catch {
+        return { ...defaults };
+      }
+    }
+    function saveSettings() { localStorage.setItem(storageKey, JSON.stringify(settings)); }
+    function loadCredentials() {
+      try {
+        return { ...defaultCredentials, ...JSON.parse(localStorage.getItem(credentialStorageKey) || "{}") };
+      } catch {
+        return { ...defaultCredentials };
+      }
+    }
+    function saveCredentials() { localStorage.setItem(credentialStorageKey, JSON.stringify(credentials)); }
+    function setText(selector, value) { document.querySelectorAll(selector).forEach((node) => { node.textContent = value; }); }
+    function cleanPhone(phone) { return String(phone || "").replace(/[^\d+]/g, ""); }
+
+    function renderPublicSite() {
+      setText("[data-bind='businessName']", settings.businessName);
+      setText("[data-bind='tagline']", settings.tagline);
+      setText("[data-bind='phone']", settings.phone);
+      applyTheme();
+      setText("[data-bind='heroText']", settings.heroText);
+      setText("[data-bind='heroSecondaryButton']", settings.heroSecondaryButton);
+      setText("[data-bind='navServices']", settings.navServices);
+      setText("[data-bind='navWork']", settings.navWork);
+      setText("[data-bind='navFounder']", settings.navFounder);
+      setText("[data-bind='navContact']", settings.navContact);
+      setText("[data-bind='servicesTitle']", settings.servicesTitle);
+      setText("[data-bind='servicesIntro']", settings.servicesIntro);
+      setText("[data-bind='galleryTitle']", settings.galleryTitle);
+      setText("[data-bind='galleryIntro']", settings.galleryIntro);
+      setText("[data-bind='aboutTitle']", settings.aboutTitle);
+      setText("[data-bind='aboutText']", settings.aboutText);
+      setText("[data-bind='founderNumber']", settings.founderNumber);
+      setText("[data-bind='founderLabel']", settings.founderLabel);
+      setText("[data-bind='contactTitle']", settings.contactTitle);
+      setText("[data-bind='contactText']", settings.contactText);
+      setText("[data-bind='footerText']", settings.footerText);
+      setText("[data-bind='instagramLabel']", settings.instagramLabel);
+      setText("[data-bind='facebookLabel']", settings.facebookLabel);
+      document.title = `${settings.businessName} | ${settings.tagline}`;
+      document.getElementById("year").textContent = new Date().getFullYear();
+      document.querySelectorAll("[data-logo]").forEach((logo) => {
+        logo.src = settings.logoImage || defaults.logoImage;
+      });
+
+      const hero = document.querySelector(".hero");
+      if (settings.heroImage) hero.style.setProperty("--hero-image", `url("${settings.heroImage}")`);
+      else hero.style.removeProperty("--hero-image");
+
+      document.querySelectorAll("[data-link='instagram']").forEach((link) => { link.href = settings.instagram || "#"; });
+      document.querySelectorAll("[data-link='facebook']").forEach((link) => { link.href = settings.facebook || "#"; });
+      document.querySelectorAll("[data-phone-link]").forEach((link) => {
+        const phone = cleanPhone(settings.phone);
+        link.href = phone.length >= 7 ? `tel:${phone}` : "#contact";
+      });
+      renderHighlights();
+      renderServices();
+      renderGallery();
+    }
+
+    function applyTheme() {
+      const root = document.documentElement;
+      root.style.setProperty("--bg", settings.bgColor || defaults.bgColor);
+      root.style.setProperty("--panel", settings.panelColor || defaults.panelColor);
+      root.style.setProperty("--ink", settings.inkColor || defaults.inkColor);
+      root.style.setProperty("--text", settings.inkColor || defaults.inkColor);
+      root.style.setProperty("--line", settings.inkColor || defaults.inkColor);
+      root.style.setProperty("--muted", settings.mutedColor || defaults.mutedColor);
+    }
+
+    function renderHighlights() {
+      const grid = document.getElementById("highlightsGrid");
+      grid.innerHTML = "";
+      settings.highlights.forEach((highlight) => {
+        const item = document.createElement("div");
+        item.className = "stat";
+        const title = document.createElement("b");
+        const text = document.createElement("span");
+        title.textContent = highlight.title || "Highlight";
+        text.textContent = highlight.text || "Highlight text";
+        item.append(title, text);
+        grid.append(item);
+      });
+    }
+
+    function renderServices() {
+      const grid = document.getElementById("servicesGrid");
+      grid.innerHTML = "";
+      settings.services.forEach((service) => {
+        const card = document.createElement("article");
+        card.className = "service-card";
+        const text = document.createElement("div");
+        const title = document.createElement("h3");
+        const desc = document.createElement("p");
+        title.textContent = service.name || "Service";
+        desc.textContent = service.description || settings.serviceFallback || defaults.serviceFallback;
+        text.append(title, desc);
+        card.append(text);
+        if (settings.showPrices) {
+          const price = document.createElement("span");
+          price.className = "price";
+          price.textContent = service.price || settings.priceFallback || defaults.priceFallback;
+          card.append(price);
+        }
+        grid.append(card);
+      });
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById("galleryGrid");
+      grid.innerHTML = "";
+      settings.photos.forEach((photo, index) => {
+        const card = document.createElement("article");
+        card.className = "gallery-card";
+        if (photo.url) {
+          const img = document.createElement("img");
+          img.src = photo.url;
+          img.alt = photo.title || `MAYAN FLOORING project ${index + 1}`;
+          card.append(img);
+        } else {
+          const placeholder = document.createElement("div");
+          placeholder.className = "gallery-placeholder";
+          placeholder.textContent = settings.galleryPlaceholder || defaults.galleryPlaceholder;
+          card.append(placeholder);
+        }
+        const label = document.createElement("span");
+        label.textContent = photo.title || "Project photo";
+        card.append(label);
+        grid.append(card);
+      });
+    }
+
+    function fillAdminForm() {
+      document.querySelectorAll("[data-setting]").forEach((input) => {
+        const key = input.dataset.setting;
+        if (input.type === "checkbox") input.checked = Boolean(settings[key]);
+        else input.value = settings[key] || "";
+      });
+      renderHighlightEditor();
+      renderServiceEditor();
+      renderPhotoEditor();
+    }
+    function readAdminForm() {
+      document.querySelectorAll("[data-setting]").forEach((input) => {
+        const key = input.dataset.setting;
+        settings[key] = input.type === "checkbox" ? input.checked : input.value;
+      });
+    }
+    function escapeHtml(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+    function renderHighlightEditor() {
+      const editor = document.getElementById("highlightEditor");
+      editor.innerHTML = "";
+      settings.highlights.forEach((highlight, index) => {
+        const item = document.createElement("div");
+        item.className = "repeat-item";
+        item.innerHTML = `
+          <div class="field"><label>Highlight title</label><input value="${escapeHtml(highlight.title)}" data-highlight-field="title" data-index="${index}"></div>
+          <div class="field"><label>Highlight text</label><textarea data-highlight-field="text" data-index="${index}">${escapeHtml(highlight.text)}</textarea></div>
+          <div class="repeat-actions"><button class="mini-btn" type="button" data-remove-highlight="${index}">Remove</button></div>
+        `;
+        editor.append(item);
+      });
+    }
+    function renderServiceEditor() {
+      const editor = document.getElementById("serviceEditor");
+      editor.innerHTML = "";
+      settings.services.forEach((service, index) => {
+        const item = document.createElement("div");
+        item.className = "repeat-item";
+        item.innerHTML = `
+          <div class="field"><label>Service name</label><input value="${escapeHtml(service.name)}" data-service-field="name" data-index="${index}"></div>
+          <div class="field"><label>Description</label><textarea data-service-field="description" data-index="${index}">${escapeHtml(service.description)}</textarea></div>
+          <div class="field"><label>Price</label><input value="${escapeHtml(service.price)}" data-service-field="price" data-index="${index}"></div>
+          <div class="repeat-actions"><button class="mini-btn" type="button" data-remove-service="${index}">Remove</button></div>
+        `;
+        editor.append(item);
+      });
+    }
+    function renderPhotoEditor() {
+      const editor = document.getElementById("photoEditor");
+      editor.innerHTML = "";
+      settings.photos.forEach((photo, index) => {
+        const item = document.createElement("div");
+        item.className = "repeat-item";
+        item.innerHTML = `
+          <div class="field"><label>Picture title</label><input value="${escapeHtml(photo.title)}" data-photo-field="title" data-index="${index}"></div>
+          <div class="field"><label>Picture URL</label><input value="${escapeHtml(photo.url)}" placeholder="Paste image URL" data-photo-field="url" data-index="${index}"></div>
+          <div class="repeat-actions"><button class="mini-btn" type="button" data-remove-photo="${index}">Remove</button></div>
+        `;
+        editor.append(item);
+      });
+    }
+    function isOwnerAuthenticated() {
+      return sessionStorage.getItem(authStorageKey) === "true";
+    }
+    async function hashValue(value) {
+      const data = new TextEncoder().encode(value);
+      const digest = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(digest))
+        .map((byte) => byte.toString(16).padStart(2, "0"))
+        .join("");
+    }
+    function setLoginError(message) {
+      const error = document.getElementById("loginError");
+      error.textContent = message;
+      error.classList.add("show");
+    }
+    function clearLoginForm() {
+      document.getElementById("adminLoginForm").reset();
+      document.getElementById("loginError").classList.remove("show");
+    }
+    function showLogin() {
+      document.getElementById("adminView").classList.remove("owner-authenticated");
+      clearLoginForm();
+      setTimeout(() => document.getElementById("ownerUsername").focus(), 0);
+    }
+    function showEditor() {
+      document.getElementById("adminView").classList.add("owner-authenticated");
+      fillAdminForm();
+    }
+    function setCredentialMessage(message, isError = false) {
+      const messageBox = document.getElementById("credentialMessage");
+      messageBox.textContent = message;
+      messageBox.classList.add("show");
+      messageBox.style.background = isError ? "#fff" : "#f4f1e7";
+    }
+    function clearCredentialFields() {
+      ["currentPasswordInput", "newUsernameInput", "newPasswordInput", "confirmPasswordInput"].forEach((id) => {
+        document.getElementById(id).value = "";
+      });
+    }
+    function openAdmin() {
+      document.body.classList.add("admin-open");
+      if (location.hash !== "#admin") history.replaceState(null, "", "#admin");
+      if (isOwnerAuthenticated()) showEditor();
+      else showLogin();
+      window.scrollTo(0, 0);
+    }
+    function closeAdmin() {
+      document.body.classList.remove("admin-open");
+      document.getElementById("adminView").classList.remove("owner-authenticated");
+      history.replaceState(null, "", location.pathname + location.search);
+      renderPublicSite();
+      window.scrollTo(0, 0);
+    }
+    function logOutOwner() {
+      sessionStorage.removeItem(authStorageKey);
+      showLogin();
+    }
+
+    document.getElementById("adminLoginForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const username = document.getElementById("ownerUsername").value.trim();
+      const password = document.getElementById("ownerPassword").value;
+      const usernameHash = await hashValue(username);
+      const passwordHash = await hashValue(password);
+      if (usernameHash === credentials.usernameHash && passwordHash === credentials.passwordHash) {
+        sessionStorage.setItem(authStorageKey, "true");
+        showEditor();
+        return;
+      }
+      setLoginError("Wrong username or password.");
+      document.getElementById("ownerPassword").value = "";
+      document.getElementById("ownerPassword").focus();
+    });
+    document.getElementById("cancelLoginBtn").addEventListener("click", closeAdmin);
+    document.getElementById("viewSiteBtn").addEventListener("click", closeAdmin);
+    document.getElementById("logoutBtn").addEventListener("click", logOutOwner);
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      readAdminForm();
+      saveSettings();
+      renderPublicSite();
+      fillAdminForm();
+      alert("Saved. Your website has been updated in this browser.");
+    });
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      if (!confirm("Reset everything back to the starter version?")) return;
+      settings = JSON.parse(JSON.stringify(defaults));
+      saveSettings();
+      renderPublicSite();
+      fillAdminForm();
+    });
+    document.getElementById("addHighlightBtn").addEventListener("click", () => {
+      settings.highlights.push({ title: "New Highlight", text: "Highlight text" });
+      renderHighlightEditor();
+    });
+    document.getElementById("addServiceBtn").addEventListener("click", () => {
+      settings.services.push({ name: "New Service", description: "Service description", price: "Price placeholder" });
+      renderServiceEditor();
+    });
+    document.getElementById("addPhotoBtn").addEventListener("click", () => {
+      settings.photos.push({ title: "New project photo", url: "" });
+      renderPhotoEditor();
+    });
+    document.getElementById("highlightEditor").addEventListener("input", (event) => {
+      const field = event.target.dataset.highlightField;
+      if (!field) return;
+      settings.highlights[Number(event.target.dataset.index)][field] = event.target.value;
+    });
+    document.getElementById("serviceEditor").addEventListener("input", (event) => {
+      const field = event.target.dataset.serviceField;
+      if (!field) return;
+      settings.services[Number(event.target.dataset.index)][field] = event.target.value;
+    });
+    document.getElementById("photoEditor").addEventListener("input", (event) => {
+      const field = event.target.dataset.photoField;
+      if (!field) return;
+      settings.photos[Number(event.target.dataset.index)][field] = event.target.value;
+    });
+    document.getElementById("highlightEditor").addEventListener("click", (event) => {
+      const index = event.target.dataset.removeHighlight;
+      if (index === undefined) return;
+      settings.highlights.splice(Number(index), 1);
+      renderHighlightEditor();
+    });
+    document.getElementById("serviceEditor").addEventListener("click", (event) => {
+      const index = event.target.dataset.removeService;
+      if (index === undefined) return;
+      settings.services.splice(Number(index), 1);
+      renderServiceEditor();
+    });
+    document.getElementById("photoEditor").addEventListener("click", (event) => {
+      const index = event.target.dataset.removePhoto;
+      if (index === undefined) return;
+      settings.photos.splice(Number(index), 1);
+      renderPhotoEditor();
+    });
+    document.getElementById("updateCredentialsBtn").addEventListener("click", async () => {
+      const currentPassword = document.getElementById("currentPasswordInput").value;
+      const newUsername = document.getElementById("newUsernameInput").value.trim();
+      const newPassword = document.getElementById("newPasswordInput").value;
+      const confirmPassword = document.getElementById("confirmPasswordInput").value;
+      if (!currentPassword) {
+        setCredentialMessage("Enter the current password first.", true);
+        return;
+      }
+      if (await hashValue(currentPassword) !== credentials.passwordHash) {
+        setCredentialMessage("Current password is incorrect.", true);
+        document.getElementById("currentPasswordInput").focus();
+        return;
+      }
+      if (!newUsername && !newPassword) {
+        setCredentialMessage("Enter a new username or a new password.", true);
+        return;
+      }
+      if (newPassword && newPassword !== confirmPassword) {
+        setCredentialMessage("New passwords do not match.", true);
+        return;
+      }
+      if (newUsername) credentials.usernameHash = await hashValue(newUsername);
+      if (newPassword) credentials.passwordHash = await hashValue(newPassword);
+      saveCredentials();
+      clearCredentialFields();
+      setCredentialMessage("Owner login updated. Use the new login next time.");
+    });
+    window.addEventListener("hashchange", () => { if (location.hash === "#admin") openAdmin(); });
+
+    renderPublicSite();
+    if (location.hash === "#admin") openAdmin();
+  </script>
+</body>
+</html>
